@@ -1,5 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:rhodadendron-cache
+LIBS:rhododendron-cache
 EELAYER 29 0
 EELAYER END
 $Descr USLedger 17000 11000
@@ -316,7 +316,7 @@ F 3 "" H 4750 2350 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L rhodadendron:USB3343 U?
+L rhododendron:USB3343 U?
 U 1 1 5CD28DED
 P 3200 2050
 F 0 "U?" H 3800 2215 50  0000 C CNN
@@ -504,13 +504,14 @@ Wire Wire Line
 Wire Wire Line
 	6400 2550 6750 2550
 $Comp
-L rhodadendron:USB-A-SHIELDED J?
+L rhododendron:USB-A-SHIELDED J?
 U 1 1 5CE06275
 P 9200 3450
 F 0 "J?" H 9728 3188 50  0000 L CNN
 F 1 "USB-A-SHIELDED" H 9728 3097 50  0000 L CNN
 F 2 "" H 9200 3450 50  0001 C CNN
 F 3 "" H 9200 3450 50  0001 C CNN
+F 4 "87583-2010BLF" H 9200 3450 50  0001 C CNN "Manuf P/N"
 	1    9200 3450
 	1    0    0    -1  
 $EndComp
@@ -1761,8 +1762,8 @@ F 7 "DNP" V 15350 7000 60  0000 C CNN "Note"
 	1    15150 7000
 	0    -1   -1   0   
 $EndComp
-Wire Bus Line
-	2600 1500 2600 2750
 Text Notes 13100 700  0    50   ~ 0
 mounting holes
+Wire Bus Line
+	2600 1500 2600 2750
 $EndSCHEMATC
