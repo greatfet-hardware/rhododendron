@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 127)
+    (drawings 124)
     (tracks 337)
     (zones 0)
     (modules 42)
@@ -379,7 +379,7 @@
       (net 1 GND))
   )
 
-  (module rhododendron:USB_B_OST_USB-B1HSxx_Horizontal (layer F.Cu) (tedit 5D2D2AFE) (tstamp 5D2E64AA)
+  (module rhododendron:USB_B_OST_USB-B1HSxx_Horizontal (layer F.Cu) (tedit 5D2D2AFE) (tstamp 5D2D38B9)
     (at 166.878 85.979)
     (descr "USB B receptacle, Horizontal, through-hole, http://www.on-shore.com/wp-content/uploads/2015/09/usb-b1hsxx.pdf")
     (tags "USB-B receptacle horizontal through-hole")
@@ -1591,15 +1591,6 @@
       (net 1 GND))
   )
 
-  (gr_text "design by @ktemkin;\nwith help from @Qyriad" (at 162.306 112.5855) (layer B.SilkS)
-    (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
-  )
-  (gr_text "Developed for use with ViewSB" (at 145.7325 96.774) (layer B.SilkS)
-    (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
-  )
-  (gr_text "Find our USB Tools\nincluding the software for this analyzer\nat https://github.com/usb-tools" (at 146.2405 87.4395) (layer B.SilkS)
-    (effects (font (size 1.778 1.778) (thickness 0.2032)) (justify mirror))
-  )
   (gr_text Powered (at 122.6185 107.7595) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )

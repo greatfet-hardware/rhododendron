@@ -744,6 +744,8 @@ Text Label 4700 2650 0    50   ~ 0
 USB_D-
 Text Label 4700 2750 0    50   ~ 0
 USB_D+
+Text Label 9600 5750 2    50   ~ 0
+USB_ID
 Text Notes 6300 2000 0    50   ~ 0
 Microchip recommends <1R ESR\non VBUS capacitor.
 $Comp
@@ -892,9 +894,15 @@ Wire Wire Line
 Wire Wire Line
 	7600 5600 9600 5600
 Wire Wire Line
-	4500 2650 7500 2650
+	7700 5750 7800 5750
 Wire Wire Line
-	4500 2750 7600 2750
+	7700 2850 7600 2850
+Wire Wire Line
+	7700 2850 7700 5750
+Wire Wire Line
+	4500 2650 8400 2650
+Wire Wire Line
+	4500 2750 8500 2750
 $Comp
 L Device:Jumper_NC_Small JP1
 U 1 1 5D01C9F5
@@ -906,6 +914,11 @@ F 3 "~" H 7500 3050 50  0001 C CNN
 	1    7500 3050
 	0    -1   -1   0   
 $EndComp
+Wire Wire Line
+	7500 2950 7500 2850
+Connection ~ 7500 2850
+Wire Wire Line
+	7500 2850 4500 2850
 Wire Wire Line
 	7500 3150 7500 5450
 Wire Wire Line
@@ -921,6 +934,11 @@ F 3 "~" H 7600 3050 50  0001 C CNN
 	1    7600 3050
 	0    -1   -1   0   
 $EndComp
+Connection ~ 7600 2850
+Wire Wire Line
+	7600 2850 7500 2850
+Wire Wire Line
+	7600 2950 7600 2850
 Text Label 9600 5450 2    50   ~ 0
 LA_USB_D-
 Text Label 9600 5600 2    50   ~ 0
@@ -1558,6 +1576,20 @@ F 3 "" H 11200 1150 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	11200 1150 11200 950 
+$Comp
+L Connector:TestPoint TP7
+U 1 1 5D27A4D5
+P 7800 5750
+F 0 "TP7" H 7742 5822 50  0000 R CNN
+F 1 "TestPoint" H 7858 5777 50  0001 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8000 5750 50  0001 C CNN
+F 3 "~" H 8000 5750 50  0001 C CNN
+	1    7800 5750
+	-1   0    0    1   
+$EndComp
+Connection ~ 7800 5750
+Wire Wire Line
+	7800 5750 9600 5750
 Text Notes 8650 950  0    50   ~ 0
 solder some bus wire between these to make a ground clip ->
 Text Notes 8650 1050 0    50   ~ 0
@@ -1708,10 +1740,10 @@ F 3 "~" H 15450 2900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3V3 #PWR03
+L power:+3V3 #PWR?
 U 1 1 5D3BD23E
 P 4850 2000
-F 0 "#PWR03" H 4850 1850 50  0001 C CNN
+F 0 "#PWR?" H 4850 1850 50  0001 C CNN
 F 1 "+3V3" H 4865 2173 50  0000 C CNN
 F 2 "" H 4850 2000 50  0001 C CNN
 F 3 "" H 4850 2000 50  0001 C CNN
@@ -1720,11 +1752,13 @@ F 3 "" H 4850 2000 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4850 2000 4850 2150
+Wire Bus Line
+	2600 1500 2600 2750
 $Comp
-L power:+3V3 #PWR08
+L power:+3V3 #PWR?
 U 1 1 5D3CEE58
 P 15950 4250
-F 0 "#PWR08" H 15950 4100 50  0001 C CNN
+F 0 "#PWR?" H 15950 4100 50  0001 C CNN
 F 1 "+3V3" H 15965 4423 50  0000 C CNN
 F 2 "" H 15950 4250 50  0001 C CNN
 F 3 "" H 15950 4250 50  0001 C CNN
@@ -1732,10 +1766,10 @@ F 3 "" H 15950 4250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3V3 #PWR01
+L power:+3V3 #PWR?
 U 1 1 5D3CF8D6
 P 2600 8750
-F 0 "#PWR01" H 2600 8600 50  0001 C CNN
+F 0 "#PWR?" H 2600 8600 50  0001 C CNN
 F 1 "+3V3" H 2615 8923 50  0000 C CNN
 F 2 "" H 2600 8750 50  0001 C CNN
 F 3 "" H 2600 8750 50  0001 C CNN
@@ -1743,10 +1777,10 @@ F 3 "" H 2600 8750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3V3 #PWR02
+L power:+3V3 #PWR?
 U 1 1 5D3D0313
 P 4500 8750
-F 0 "#PWR02" H 4500 8600 50  0001 C CNN
+F 0 "#PWR?" H 4500 8600 50  0001 C CNN
 F 1 "+3V3" H 4515 8923 50  0000 C CNN
 F 2 "" H 4500 8750 50  0001 C CNN
 F 3 "" H 4500 8750 50  0001 C CNN
@@ -1754,10 +1788,10 @@ F 3 "" H 4500 8750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3V3 #PWR04
+L power:+3V3 #PWR?
 U 1 1 5D3D0D8E
 P 7850 7150
-F 0 "#PWR04" H 7850 7000 50  0001 C CNN
+F 0 "#PWR?" H 7850 7000 50  0001 C CNN
 F 1 "+3V3" V 7865 7278 50  0000 L CNN
 F 2 "" H 7850 7150 50  0001 C CNN
 F 3 "" H 7850 7150 50  0001 C CNN
@@ -1765,10 +1799,10 @@ F 3 "" H 7850 7150 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:+3V3 #PWR05
+L power:+3V3 #PWR?
 U 1 1 5D3D128C
 P 7850 7400
-F 0 "#PWR05" H 7850 7250 50  0001 C CNN
+F 0 "#PWR?" H 7850 7250 50  0001 C CNN
 F 1 "+3V3" V 7865 7528 50  0000 L CNN
 F 2 "" H 7850 7400 50  0001 C CNN
 F 3 "" H 7850 7400 50  0001 C CNN
@@ -1776,10 +1810,10 @@ F 3 "" H 7850 7400 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:+3V3 #PWR06
+L power:+3V3 #PWR?
 U 1 1 5D3D1BBF
 P 7850 7650
-F 0 "#PWR06" H 7850 7500 50  0001 C CNN
+F 0 "#PWR?" H 7850 7500 50  0001 C CNN
 F 1 "+3V3" V 7865 7778 50  0000 L CNN
 F 2 "" H 7850 7650 50  0001 C CNN
 F 3 "" H 7850 7650 50  0001 C CNN
@@ -1787,39 +1821,14 @@ F 3 "" H 7850 7650 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:+3V3 #PWR07
+L power:+3V3 #PWR?
 U 1 1 5D3D1DAD
 P 7850 7950
-F 0 "#PWR07" H 7850 7800 50  0001 C CNN
+F 0 "#PWR?" H 7850 7800 50  0001 C CNN
 F 1 "+3V3" V 7865 8078 50  0000 L CNN
 F 2 "" H 7850 7950 50  0001 C CNN
 F 3 "" H 7850 7950 50  0001 C CNN
 	1    7850 7950
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	7500 2950 7500 2650
-Connection ~ 7500 2650
-Wire Wire Line
-	7500 2650 8400 2650
-Connection ~ 7600 2750
-Wire Wire Line
-	7600 2750 8500 2750
-Wire Wire Line
-	7600 2750 7600 2950
-Wire Wire Line
-	4500 2850 4600 2850
-Wire Bus Line
-	2600 1500 2600 2750
-$Comp
-L power:GND #PWR?
-U 1 1 5D44DC8D
-P 4600 2850
-F 0 "#PWR?" H 4600 2600 50  0001 C CNN
-F 1 "GND" V 4605 2722 50  0000 R CNN
-F 2 "" H 4600 2850 50  0001 C CNN
-F 3 "" H 4600 2850 50  0001 C CNN
-	1    4600 2850
 	0    -1   -1   0   
 $EndComp
 $EndSCHEMATC
