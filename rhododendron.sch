@@ -396,7 +396,7 @@ Wire Wire Line
 Wire Wire Line
 	4500 3650 5200 3650
 $Comp
-L Device:Crystal Y1
+L Device:Crystal_GND24 Y1
 U 1 1 5CD6A676
 P 6050 3450
 F 0 "Y1" V 6096 3319 50  0000 R CNN
@@ -479,8 +479,6 @@ F 3 "~" H 5600 3450 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4500 2550 5450 2550
-Wire Wire Line
-	6400 2550 6750 2550
 $Comp
 L rhododendron:USB-A-SHIELDED J4
 U 1 1 5CE06275
@@ -493,11 +491,6 @@ F 4 "87583-2010BLF" H 9200 3450 50  0001 C CNN "Manuf P/N"
 	1    9200 3450
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	9100 3550 8300 3550
-Wire Wire Line
-	8300 3550 8300 2550
-Connection ~ 8300 2550
 Wire Wire Line
 	8400 2650 8400 3650
 Wire Wire Line
@@ -548,20 +541,6 @@ F 3 "~" H 6250 2550 50  0001 C CNN
 	1    6250 2550
 	0    1    1    0   
 $EndComp
-$Comp
-L Device:C C9
-U 1 1 5CE810FA
-P 6750 2400
-F 0 "C9" H 6865 2446 50  0000 L CNN
-F 1 "2.2uF" H 6865 2355 50  0000 L CNN
-F 2 "gsg-modules:0603" H 6788 2250 50  0001 C CNN
-F 3 "~" H 6750 2400 50  0001 C CNN
-	1    6750 2400
-	1    0    0    -1  
-$EndComp
-Connection ~ 6750 2550
-Wire Wire Line
-	6750 2550 8300 2550
 $Comp
 L power:GND #PWR0111
 U 1 1 5CE8181E
@@ -689,21 +668,12 @@ F 3 "" H 4050 8750 50  0001 C CNN
 $EndComp
 Wire Bus Line
 	2600 1500 2000 1500
-Wire Wire Line
-	5800 3600 5800 4100
-Wire Wire Line
-	5800 4100 6700 4100
-Connection ~ 5800 3600
-Wire Wire Line
-	5800 3600 6050 3600
 Text Notes 4500 4550 0    50   ~ 0
 Datasheet requries <1R ESR\nfor VDD33/VDD18 bypass.
 Text Notes 5750 3250 0    50   ~ 0
 freq +/- 500ppm
 Text Label 2000 1500 0    50   ~ 0
 ULPI_DATA
-Text Label 6700 4100 2    50   ~ 0
-PHY_26MHZ_IN
 Text Label 2750 2150 0    50   ~ 0
 ULPI_DATA0
 Text Label 2750 2250 0    50   ~ 0
@@ -745,7 +715,7 @@ USB_D-
 Text Label 4700 2750 0    50   ~ 0
 USB_D+
 Text Notes 6300 2000 0    50   ~ 0
-Microchip recommends <1R ESR\non VBUS capacitor.
+Microchip recommends <1R ESR\non VBUS capacitor. We're recommending DNP\nto limit inrush; the USB spec limits VBUS cap to 10uF.
 $Comp
 L Device:LED D1
 U 1 1 5CEE4C6E
@@ -884,15 +854,11 @@ Wire Wire Line
 	5600 3300 6050 3300
 Connection ~ 5600 3600
 Wire Wire Line
-	5600 3600 5800 3600
-Wire Wire Line
 	5350 3600 5600 3600
 Wire Wire Line
 	7500 5450 9600 5450
 Wire Wire Line
 	7600 5600 9600 5600
-Wire Wire Line
-	4500 2650 7500 2650
 Wire Wire Line
 	4500 2750 7600 2750
 $Comp
@@ -1452,9 +1418,6 @@ F 3 "~" H 9150 2550 50  0001 C CNN
 	1    8950 2550
 	1    0    0    -1  
 $EndComp
-Connection ~ 8950 2550
-Wire Wire Line
-	8300 2550 8950 2550
 $Comp
 L Connector:TestPoint TP6
 U 1 1 5D2455EC
@@ -1516,7 +1479,7 @@ U 1 1 5D2578AD
 P 11550 950
 F 0 "TP10" H 11608 1022 50  0000 L CNN
 F 1 "TestPoint" H 11608 977 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 11750 950 50  0001 C CNN
+F 2 "gsg-modules:HEADER-1x1" H 11750 950 50  0001 C CNN
 F 3 "~" H 11750 950 50  0001 C CNN
 	1    11550 950 
 	1    0    0    -1  
@@ -1540,7 +1503,7 @@ U 1 1 5D269DF6
 P 11200 950
 F 0 "TP9" H 11258 1022 50  0000 L CNN
 F 1 "TestPoint" H 11258 977 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 11400 950 50  0001 C CNN
+F 2 "gsg-modules:HEADER-1x1" H 11400 950 50  0001 C CNN
 F 3 "~" H 11400 950 50  0001 C CNN
 	1    11200 950 
 	1    0    0    -1  
@@ -1655,7 +1618,6 @@ NoConn ~ 15850 7550
 NoConn ~ 15950 7550
 NoConn ~ 4450 -600
 NoConn ~ 10850 3300
-Connection ~ 8500 2750
 Connection ~ 8400 2650
 Wire Wire Line
 	9100 2650 8400 2650
@@ -1668,10 +1630,6 @@ Wire Wire Line
 	9050 3200 9050 2950
 Wire Wire Line
 	9600 3200 9050 3200
-Wire Wire Line
-	9100 2750 8500 2750
-Wire Wire Line
-	8950 2550 9100 2550
 $Comp
 L rhododendron:USB-B-SHIELDED J5
 U 1 1 5CDC4B6F
@@ -1799,27 +1757,109 @@ F 3 "" H 7850 7950 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7500 2950 7500 2650
-Connection ~ 7500 2650
 Wire Wire Line
 	7500 2650 8400 2650
-Connection ~ 7600 2750
-Wire Wire Line
-	7600 2750 8500 2750
 Wire Wire Line
 	7600 2750 7600 2950
 Wire Wire Line
 	4500 2850 4600 2850
-Wire Bus Line
-	2600 1500 2600 2750
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0102
 U 1 1 5D44DC8D
 P 4600 2850
-F 0 "#PWR?" H 4600 2600 50  0001 C CNN
+F 0 "#PWR0102" H 4600 2600 50  0001 C CNN
 F 1 "GND" V 4605 2722 50  0000 R CNN
 F 2 "" H 4600 2850 50  0001 C CNN
 F 3 "" H 4600 2850 50  0001 C CNN
 	1    4600 2850
 	0    -1   -1   0   
 $EndComp
+Wire Wire Line
+	5600 3600 6050 3600
+$Comp
+L Device:R R8
+U 1 1 5D2FC30C
+P 8650 3200
+F 0 "R8" H 8720 3246 50  0000 L CNN
+F 1 "DNP" H 8720 3155 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 8580 3200 50  0001 C CNN
+F 3 "~" H 8650 3200 50  0001 C CNN
+	1    8650 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C9-DNP1
+U 1 1 5CE810FA
+P 6750 2400
+F 0 "C9-DNP1" H 6865 2446 50  0000 L CNN
+F 1 "2.2uF" H 6865 2355 50  0000 L CNN
+F 2 "gsg-modules:0603" H 6788 2250 50  0001 C CNN
+F 3 "~" H 6750 2400 50  0001 C CNN
+	1    6750 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0114
+U 1 1 5D34565D
+P 5850 3450
+F 0 "#PWR0114" H 5850 3200 50  0001 C CNN
+F 1 "GND" V 6100 3450 50  0001 R CNN
+F 2 "" H 5850 3450 50  0001 C CNN
+F 3 "" H 5850 3450 50  0001 C CNN
+	1    5850 3450
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0118
+U 1 1 5D346051
+P 6450 3450
+F 0 "#PWR0118" H 6450 3200 50  0001 C CNN
+F 1 "GND" V 6700 3450 50  0001 R CNN
+F 2 "" H 6450 3450 50  0001 C CNN
+F 3 "" H 6450 3450 50  0001 C CNN
+	1    6450 3450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6250 3450 6450 3450
+Connection ~ 7600 2750
+Wire Wire Line
+	7600 2750 8500 2750
+Connection ~ 8500 2750
+Connection ~ 7500 2650
+Wire Wire Line
+	4500 2650 7500 2650
+Wire Wire Line
+	6400 2550 6750 2550
+Connection ~ 6750 2550
+Wire Wire Line
+	6750 2550 8300 2550
+Connection ~ 8950 2550
+Wire Wire Line
+	8950 2550 9100 2550
+Wire Wire Line
+	8300 3550 8300 2550
+Connection ~ 8300 2550
+Wire Wire Line
+	8300 2550 8650 2550
+Wire Wire Line
+	8650 3050 8650 2550
+Connection ~ 8650 2550
+Wire Wire Line
+	8650 2550 8950 2550
+Wire Wire Line
+	8650 3350 8650 3550
+Wire Wire Line
+	8300 3550 8650 3550
+Connection ~ 8650 3550
+Wire Wire Line
+	8650 3550 9100 3550
+Wire Wire Line
+	9100 2750 8500 2750
+Wire Bus Line
+	2600 1500 2600 2750
+Text Notes 6600 2550 0    315  ~ 0
+X
+Text Notes 8500 3400 0    315  ~ 0
+X
 $EndSCHEMATC
