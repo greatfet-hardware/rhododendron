@@ -953,13 +953,13 @@ I2C0_SDA
 Text Label 15500 3900 2    40   ~ 0
 I2C0_SCL
 Text Notes 14450 6150 2    40   ~ 0
-SSEL
+CS
 Text Notes 15450 6150 0    40   ~ 0
 SCK
 Text Notes 14450 6250 2    40   ~ 0
-MOSI
+COPI
 Text Notes 15450 6250 0    40   ~ 0
-MISO
+CIPO
 Text Label 14150 6050 2    40   ~ 0
 ~PHY_RESET
 Text Label 15400 6050 2    40   ~ 0
